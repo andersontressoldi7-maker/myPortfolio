@@ -282,12 +282,11 @@ export default function AndersonPortfolio() {
         .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
         .btn-primary {
-          display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px;
+          display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px;
           border-radius: 14px; background: #10b981; color: #000; font-weight: 700;
           cursor: pointer; border: none; transition: all 0.2s;
           text-decoration: none;
           max-width: 100%;
-          overflow-wrap: break-word;
         }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(16,185,129,0.35); }
 
@@ -299,6 +298,12 @@ export default function AndersonPortfolio() {
           text-decoration: none;
         }
         .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(16,185,129,0.4); }
+
+        .email-btn {
+          word-break: break-all;
+          white-space: normal;
+          text-align: center;
+        }
 
         .project-card {
           display: flex; flex-direction: column; height: 100%;
@@ -315,6 +320,7 @@ export default function AndersonPortfolio() {
         .grid-projetos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .grid-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .header-container { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 72px; }
+        .footer-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; max-width: 1200px; margin: 0 auto; }
         .hero-content { display: block; }
         .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; animation: fadeUp 0.7s 0.4s ease both; justify-content: flex-start; }
         .hero-img-box { display: flex; justify-content: center; align-items: center; position: relative; height: 520px; }
@@ -327,11 +333,13 @@ export default function AndersonPortfolio() {
           .grid-projetos { grid-template-columns: 1fr; }
           .grid-skills { grid-template-columns: 1fr; }
           .header-container { flex-direction: column; height: auto !important; padding: 16px 24px !important; gap: 16px; }
+          .footer-container { flex-direction: column; text-align: center; justify-content: center; }
           .hero-content { display: flex; flex-direction: column; align-items: center; }
           .hero-btns { justify-content: center; }
           .nav-menu { flex-wrap: wrap; justify-content: center; gap: 16px !important; }
           .hero-img-box { height: 400px; margin-top: 40px; }
           .hero-social { justify-content: center; }
+          .email-btn { font-size: 0.85rem; padding: 12px 16px; }
         }
       `}</style>
 
@@ -572,7 +580,7 @@ export default function AndersonPortfolio() {
             <div style={{ borderRadius: 32, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", padding: "60px", textAlign: "center" }}>
               <h2 style={{ fontSize: "2.5rem", fontWeight: 800, marginBottom: 16 }}>{t.contato.titulo}</h2>
               <p style={{ color: "rgba(255,255,255,0.5)", marginBottom: 32 }}>{t.contato.sub}</p>
-              <a href="mailto:andersontressoldi7@gmail.com" className="btn-primary" style={{textDecoration: 'none'}}>
+              <a href="mailto:andersontressoldi7@gmail.com" className="btn-primary email-btn" style={{textDecoration: 'none'}}>
                 andersontressoldi7@gmail.com
               </a>
             </div>
@@ -581,10 +589,10 @@ export default function AndersonPortfolio() {
       </main>
 
       <footer style={{ border: "none", padding: "40px 24px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
+        <div className="footer-container">
           <div>
             <div style={{ fontWeight: 700 }}>Anderson</div>
-            <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.4)" }}>© 2024 {t.contato.footer}</div>
+            <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.4)" }}>© 2026 {t.contato.footer}</div>
           </div>
           <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>
             {t.contato.feito} <span style={{ color: "#10b981" }}>♥</span> Anderson
