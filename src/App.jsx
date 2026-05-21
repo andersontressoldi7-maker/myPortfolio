@@ -307,6 +307,28 @@ export default function AndersonPortfolio() {
 
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-thumb { background: rgba(16,185,129,0.3); border-radius: 3px; }
+
+        .grid-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .grid-sobre { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+        .grid-projetos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .grid-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .header-container { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 72px; }
+        .hero-content { display: block; }
+        .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; animation: fadeUp 0.7s 0.4s ease both; justify-content: flex-start; }
+        .hero-img-box { display: flex; justify-content: center; align-items: center; position: relative; height: 520px; }
+        .nav-menu { display: flex; gap: 32px; align-items: center; }
+
+        @media (max-width: 900px) {
+          .grid-hero { grid-template-columns: 1fr; text-align: center; padding-top: 180px !important; }
+          .grid-sobre { grid-template-columns: 1fr; }
+          .grid-projetos { grid-template-columns: 1fr; }
+          .grid-skills { grid-template-columns: 1fr; }
+          .header-container { flex-direction: column; height: auto !important; padding: 16px 24px !important; gap: 16px; }
+          .hero-content { display: flex; flex-direction: column; align-items: center; }
+          .hero-btns { justify-content: center; }
+          .nav-menu { flex-wrap: wrap; justify-content: center; gap: 16px !important; }
+          .hero-img-box { height: 400px; margin-top: 40px; }
+        }
       `}</style>
 
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, background: "radial-gradient(ellipse 80% 50% at 70% -10%, rgba(16,185,129,0.12), transparent)" }} />
@@ -319,18 +341,18 @@ export default function AndersonPortfolio() {
         border: "none",
         transition: "all 0.4s",
       }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", height: 72, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="header-container">
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ width: 40, height: 40, borderRadius: 12, background: "rgba(16,185,129,0.15)", border: "1px solid rgba(16,185,129,0.3)", display: "flex", alignItems: "center", justifyContent: "center", color: "#10b981", fontWeight: 700 }}>
               {"</>"}
             </div>
             <div>
-              <div style={{ fontWeight: 800, fontSize: "1rem" }}>Anderson</div>
-              <div style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)" }}>Software Developer</div>
+              <div style={{ fontWeight: 800, fontSize: "1rem", textAlign: "left" }}>Anderson</div>
+              <div style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", textAlign: "left" }}>Software Developer</div>
             </div>
           </div>
 
-          <nav style={{ display: "flex", gap: 32, alignItems: "center" }}>
+          <nav className="nav-menu">
             {t.nav.map((link, i) => {
               const ids = ["inicio", "sobre", "experiencia", "projetos", "skills", "contato"];
               return (
@@ -362,34 +384,34 @@ export default function AndersonPortfolio() {
 
       <main style={{ position: "relative", zIndex: 1, width: "100%" }}>
 
-        <section id="inicio" style={{ maxWidth: 1200, margin: "0 auto", padding: "140px 24px 100px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", minHeight: "100vh" }}>
-          <div>
+        <section id="inicio" className="grid-hero" style={{ maxWidth: 1200, margin: "0 auto", padding: "140px 24px 100px", alignItems: "center", minHeight: "100vh" }}>
+          <div className="hero-content">
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 16px", borderRadius: 100, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", fontSize: "0.8rem", color: "rgba(255,255,255,0.6)", marginBottom: 28, animation: "fadeUp 0.6s ease both" }}>
               <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#10b981", animation: "pulse-glow 2s infinite" }} />
               {t.hero.ola}
             </div>
             <h1 style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", fontWeight: 800, lineHeight: 1.05, marginBottom: 8, animation: "fadeUp 0.7s 0.1s ease both" }}>Anderson</h1>
-            <h1 style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", fontWeight: 800, lineHeight: 1.05, marginBottom: 28, color: "#10b981", animation: "fadeUp 0.7s 0.2s ease both", display: "flex", alignItems: "center", gap: 4 }}>
+            <h1 style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", fontWeight: 800, lineHeight: 1.05, marginBottom: 28, color: "#10b981", animation: "fadeUp 0.7s 0.2s ease both", display: "flex", alignItems: "center", justifyContent: "inherit", gap: 4 }}>
               {t.hero.cargo}
               <span style={{ width: 3, height: "0.9em", background: "#10b981", animation: "blink 1s infinite" }} />
             </h1>
             <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "1.05rem", lineHeight: 1.8, maxWidth: 480, marginBottom: 36, animation: "fadeUp 0.7s 0.3s ease both" }}>
               {t.hero.desc}
             </p>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 36, animation: "fadeUp 0.7s 0.4s ease both" }}>
+            <div className="hero-btns">
               <button className="btn-primary" onClick={() => rolarParaSecao("projetos", t.nav[3])}>{t.hero.btnProjetos}</button>
               <button className="btn-outline" onClick={baixarCurriculo}>Download CV ↓</button>
             </div>
             <div style={{ animation: "fadeUp 0.7s 0.5s ease both" }}>
               <div style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", marginBottom: 12 }}>{t.hero.btnSocial}</div>
-              <div style={{ display: "flex", gap: 10 }}>
+              <div style={{ display: "flex", gap: 10, justifyContent: "inherit" }}>
                 <a href="https://www.linkedin.com/in/anderson-tressoldi-b48947266" target="_blank" rel="noreferrer" className="btn-outline" style={{ width: 44, height: 44, borderRadius: 12, padding: 0, justifyContent: 'center' }}>in</a>
               </div>
             </div>
           </div>
 
-          <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", height: 520 }}>
-            <div style={{ position: "absolute", width: 420, height: 420, borderRadius: "50%", background: "rgba(16,185,129,0.15)", filter: "blur(60px)", animation: "pulse-glow 4s ease-in-out infinite" }} />
+          <div className="hero-img-box">
+            <div style={{ position: "absolute", width: 320, height: 320, borderRadius: "50%", background: "rgba(16,185,129,0.15)", filter: "blur(60px)", animation: "pulse-glow 4s ease-in-out infinite" }} />
             
             <div style={{ 
               display: "flex", alignItems: "center", justifyContent: "center",
@@ -413,12 +435,12 @@ export default function AndersonPortfolio() {
               </div>
             </div>
 
-            <div style={{ position: "absolute", right: -20, top: "10%", background: "rgba(10,20,16,0.9)", backdropFilter: "blur(20px)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: 16, padding: "16px", fontFamily: "'JetBrains Mono', monospace", fontSize: "0.75rem", animation: "float 3s infinite alternate" }}>
-              <div style={{ color: "#10b981" }}>const dev = {"{"}</div>
-              <div style={{ paddingLeft: 12 }}>nome: 'Anderson',</div>
-              <div style={{ paddingLeft: 12 }}>foco: 'Fullstack',</div>
-              <div style={{ paddingLeft: 12 }}>idade: '22'</div>
-              <div style={{ color: "#10b981" }}>{"}"}</div>
+            <div style={{ position: "absolute", right: -20, top: "10%", background: "rgba(10,20,16,0.9)", backdropFilter: "blur(20px)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: 16, padding: "16px", fontFamily: "'JetBrains Mono', monospace", fontSize: "0.75rem", animation: "float 3s infinite alternate", zIndex: 3 }}>
+              <div style={{ color: "#10b981", textAlign: "left" }}>const dev = {"{"}</div>
+              <div style={{ paddingLeft: 12, textAlign: "left" }}>nome: 'Anderson',</div>
+              <div style={{ paddingLeft: 12, textAlign: "left" }}>foco: 'Fullstack',</div>
+              <div style={{ paddingLeft: 12, textAlign: "left" }}>idade: '22'</div>
+              <div style={{ color: "#10b981", textAlign: "left" }}>{"}"}</div>
             </div>
 
             <div style={{
@@ -428,9 +450,10 @@ export default function AndersonPortfolio() {
               boxShadow: "0 16px 40px rgba(0,0,0,0.4)",
               animation: "float 3.5s ease-in-out 0.5s infinite alternate",
               minWidth: 160,
+              zIndex: 3
             }}>
-              <div style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", marginBottom: 4, letterSpacing: "0.08em" }}>{t.hero.localizacao}</div>
-              <div style={{ fontWeight: 700, display: "flex", alignItems: "center", gap: 6 }}>
+              <div style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", marginBottom: 4, letterSpacing: "0.08em", textAlign: "left" }}>{t.hero.localizacao}</div>
+              <div style={{ fontWeight: 700, display: "flex", alignItems: "center", gap: 6, textAlign: "left" }}>
                 🇵🇹 <span>Coimbra, Portugal</span>
               </div>
             </div>
@@ -442,7 +465,7 @@ export default function AndersonPortfolio() {
             <div style={{ fontSize: "0.7rem", color: "#10b981", letterSpacing: "0.1em", marginBottom: 12 }}>{t.sobre.titulo}</div>
             <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, marginBottom: 60 }}>{t.sobre.sub}</h2>
           </EfeitoSurgir>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
+          <div className="grid-sobre">
             <EfeitoSurgir delay={0.1}>
               <p style={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.9, marginBottom: 20 }}>{t.sobre.p1}</p>
               <p style={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.9, marginBottom: 28 }}>{t.sobre.p2}</p>
@@ -488,7 +511,7 @@ export default function AndersonPortfolio() {
             </div>
           </EfeitoSurgir>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          <div className="grid-projetos">
             {PROJETOS.map((p, i) => (
               <EfeitoSurgir key={i} delay={i * 0.1}>
                 <div className="project-card">
@@ -513,7 +536,7 @@ export default function AndersonPortfolio() {
             <div style={{ fontSize: "0.7rem", color: "#10b981", marginBottom: 12 }}>{t.skills.titulo}</div>
             <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, marginBottom: 48 }}>Skills</h2>
           </EfeitoSurgir>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
+          <div className="grid-skills">
             {DADOS_HABILIDADES.map((s, i) => (
               <div key={i}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8, fontSize: "0.9rem" }}>
@@ -553,7 +576,7 @@ export default function AndersonPortfolio() {
       </main>
 
       <footer style={{ border: "none", padding: "40px 24px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
           <div>
             <div style={{ fontWeight: 700 }}>Anderson</div>
             <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.4)" }}>© 2024 {t.contato.footer}</div>
