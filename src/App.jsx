@@ -10,7 +10,7 @@ const TEXTOS = {
       sub: "Desenvolvedor de Software",
       desc: "Desenvolvedor Fullstack com experiência em criar soluções eficientes, escaláveis e com foco em performance e experiência do usuário.",
       btnProjetos: "Ver Projetos →",
-      btnSocial: "ME SIGA",
+      btnSocial: "CONTATO / REDES",
       localizacao: "LOCALIZAÇÃO"
     },
     sobre: {
@@ -43,7 +43,7 @@ const TEXTOS = {
       sub: "Software Developer",
       desc: "Fullstack Developer experienced in creating efficient, scalable solutions focused on performance and user experience.",
       btnProjetos: "See Projects →",
-      btnSocial: "FOLLOW ME",
+      btnSocial: "CONTACT / SOCIAL",
       localizacao: "LOCATION"
     },
     sobre: {
@@ -286,6 +286,8 @@ export default function AndersonPortfolio() {
           border-radius: 14px; background: #10b981; color: #000; font-weight: 700;
           cursor: pointer; border: none; transition: all 0.2s;
           text-decoration: none;
+          max-width: 100%;
+          overflow-wrap: break-word;
         }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(16,185,129,0.35); }
 
@@ -317,6 +319,7 @@ export default function AndersonPortfolio() {
         .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; animation: fadeUp 0.7s 0.4s ease both; justify-content: flex-start; }
         .hero-img-box { display: flex; justify-content: center; align-items: center; position: relative; height: 520px; }
         .nav-menu { display: flex; gap: 32px; align-items: center; }
+        .hero-social { display: flex; gap: 10px; justify-content: flex-start; }
 
         @media (max-width: 900px) {
           .grid-hero { grid-template-columns: 1fr; text-align: center; padding-top: 180px !important; }
@@ -328,6 +331,7 @@ export default function AndersonPortfolio() {
           .hero-btns { justify-content: center; }
           .nav-menu { flex-wrap: wrap; justify-content: center; gap: 16px !important; }
           .hero-img-box { height: 400px; margin-top: 40px; }
+          .hero-social { justify-content: center; }
         }
       `}</style>
 
@@ -404,8 +408,9 @@ export default function AndersonPortfolio() {
             </div>
             <div style={{ animation: "fadeUp 0.7s 0.5s ease both" }}>
               <div style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", marginBottom: 12 }}>{t.hero.btnSocial}</div>
-              <div style={{ display: "flex", gap: 10, justifyContent: "inherit" }}>
+              <div className="hero-social">
                 <a href="https://www.linkedin.com/in/anderson-tressoldi-b48947266" target="_blank" rel="noreferrer" className="btn-outline" style={{ width: 44, height: 44, borderRadius: 12, padding: 0, justifyContent: 'center' }}>in</a>
+                <a href="mailto:andersontressoldi7@gmail.com" className="btn-outline" style={{ width: 44, height: 44, borderRadius: 12, padding: 0, justifyContent: 'center' }}>✉️</a>
               </div>
             </div>
           </div>
